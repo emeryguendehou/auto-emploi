@@ -1,0 +1,66 @@
+# ============================================================
+# COUNTRY RULES — conventions de CV par marché cible
+# La sélection de contenu ne change pas d'un pays à l'autre ;
+# seuls la langue, les coordonnées et les conventions changent.
+# ============================================================
+
+fr:
+  language: fr
+  address_key: fr          # quelle adresse/téléphone afficher
+  phone_key: fr
+  page_limit: 1
+  show_interests: true     # accepté en France
+  show_soft_skills: true
+  show_languages_cefr: true  # C1/B1 compris en France
+  contract_vocab: "CDI / CDD"
+  title_suffix: ""         # ex. " — CDI dès sept. 2026" si besoin
+  notes: >-
+    Junior : 1 page impérative. Pas de photo (choix assumé, évite les biais).
+    Diplôme d'ingénieur = mention telle quelle, reconnu en France.
+
+ca-qc:                     # Québec francophone
+  language: fr
+  address_key: ca
+  phone_key: ca
+  page_limit: 1
+  show_interests: false    # normes anti-discrimination : on épure
+  show_soft_skills: true   # comme Johanu : une ligne courte, sélectionnée
+  show_languages_cefr: false  # écrire "natif / avancé", pas C1/B1
+  contract_vocab: "poste permanent / temps plein"
+  title_suffix: ""
+  degree_hint: "(équiv. M.Eng.)"   # aider le recruteur canadien
+  notes: >-
+    Adresse et téléphone canadiens obligatoires en tête. Jamais "CDI" ni
+    "Baccalauréat" (faux-ami : diplôme universitaire au Canada).
+
+ca-en:                     # Canada anglophone / offres EN au Québec
+  language: en
+  address_key: ca
+  phone_key: ca
+  page_limit: 1
+  show_interests: false
+  show_soft_skills: true
+  show_languages_cefr: false
+  contract_vocab: "permanent / full-time position"
+  title_suffix: ""
+  degree_hint: "(M.Eng. equivalent)"
+  notes: >-
+    Orthographe canadienne acceptée (analyze/behaviour indifférent pour l'IT).
+    Mentionner "Based in Québec, available for remote work" dans le profil
+    si l'offre est remote.
+
+intl:                      # remote monde / offres internationales
+  language: en
+  address_key: ca          # l'adresse la plus "compatible fuseau" du moment
+  phone_key: ca
+  page_limit: 1
+  show_interests: false
+  show_soft_skills: true
+  show_languages_cefr: false
+  contract_vocab: "full-time / contract"
+  title_suffix: ""
+  degree_hint: "(M.Eng. equivalent)"
+  notes: >-
+    Préciser le fuseau horaire (ET/UTC-5) et la disponibilité remote dans
+    l'accroche. Pas de références franco-françaises (NIS2/DORA seulement si
+    l'offre est européenne).

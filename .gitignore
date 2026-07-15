@@ -1,0 +1,51 @@
+# ─────────────────────────────────────────────
+# Secrets — ne JAMAIS versionner
+# ─────────────────────────────────────────────
+.env
+
+# ─────────────────────────────────────────────
+# Données personnelles & générées
+# (des exemples anonymisés sont fournis : *.example.*)
+# ─────────────────────────────────────────────
+cvgen/profile_master.yaml
+cvgen/profile_master.yaml.bak
+cvgen/out/
+out/
+
+# Tout le contenu de data/ est personnel ou généré au runtime :
+# on ne garde que le placeholder de dossier et l'exemple anonymisé.
+data/*
+!data/.gitkeep
+!data/criteres.example.md
+
+# ─────────────────────────────────────────────
+# Python
+# ─────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+.pytest_cache/
+
+# ─────────────────────────────────────────────
+# Frontend (Node / build)
+# ─────────────────────────────────────────────
+dashboard/frontend/node_modules/
+dashboard/frontend/dist/
+dashboard/static/
+
+# ─────────────────────────────────────────────
+# Logs & sorties
+# ─────────────────────────────────────────────
+logs/
+*.log
+*.pdf
+
+# ─────────────────────────────────────────────
+# IDE / OS
+# ─────────────────────────────────────────────
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

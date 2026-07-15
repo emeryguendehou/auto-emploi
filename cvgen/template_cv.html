@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+<meta charset="utf-8">
+<style>
+  @page { size: A4; margin: 9mm 13mm; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Carlito", "Calibri", "Helvetica Neue", Arial, sans-serif;
+         font-size: 9.4pt; line-height: 1.2; color: #000; }
+  .name { text-align: center; font-size: 17pt; font-weight: bold; }
+  .headline { text-align: center; font-size: 10.8pt; font-weight: bold; margin-top: 1mm; }
+  .contact { text-align: center; font-size: 8.8pt; color: #444; margin: 1mm 0 2mm; }
+  h2 { font-size: 10.4pt; font-weight: bold; border-bottom: 0.7pt solid #000;
+       padding-bottom: 0.5mm; margin: 2.2mm 0 1.2mm; }
+  .row { display: flex; justify-content: space-between; margin-top: 1.6mm; }
+  .org { font-weight: bold; font-size: 9.8pt; }
+  .dates { font-weight: bold; font-size: 9.2pt; white-space: nowrap; }
+  .row2 { display: flex; justify-content: space-between; }
+  .role, .loc { font-style: italic; font-size: 9.4pt; }
+  ul { margin: 0.4mm 0 0 4.5mm; }
+  li { margin-bottom: 0.5mm; }
+  .tech { font-style: italic; margin-top: 0.2mm; }
+  .projname { font-weight: bold; }
+  .skill b { font-weight: bold; }
+  .skill { margin-bottom: 0.7mm; }
+  .profile { text-align: justify; }
+  /* Liens cliquables dans le PDF, sans altérer le rendu visuel (ATS-safe). */
+  a { color: inherit; text-decoration: none; }
+</style>
+</head>
+<body>
+
+  <div class="name">{{ identity.name }}</div>
+  <div class="headline">{{ headline }}</div>
+  <div class="contact">
+    {{ phone }} | {{ address }} |
+    <a href="mailto:{{ identity.email }}">{{ identity.email }}</a> |
+    <a href="https://{{ identity.linkedin }}">{{ identity.linkedin }}</a> |
+    <a href="https://{{ identity.github }}">{{ identity.github }}</a>
+  </div>
+
+  <h2>{{ T.profile }}</h2>
+  <p class="profile">{{ profile_text }}</p>
+
+  <h2>{{ T.experience }}</h2>
+  {% for e in experiences %}
+    <div class="row"><span class="org">{{ e.org }}</span><span class="dates">{{ e.dates }}</span></div>
+    <div class="row2"><span class="role">{{ e.role }}</span><span class="loc">{{ e.location }}</span></div>
+    <ul>{% for b in e.bullets %}<li>{{ b }}</li>{% endfor %}</ul>
+  {% endfor %}
+
+  <h2>{{ T.projects }}</h2>
+  {% for p in projects %}
+    <div class="row"><span><span class="projname">{{ p.name }}</span> — {{ p.desc }}</span></div>
+    <div class="tech">{{ T.tech }}{{ p.tech }}</div>
+    <ul>{% for b in p.bullets %}<li>{{ b }}</li>{% endfor %}</ul>
+  {% endfor %}
+
+  <h2>{{ T.education }}</h2>
+  {% for ed in education %}
+    <div class="row"><span class="org">{{ ed.degree }}</span><span class="dates">{{ ed.dates }}</span></div>
+    <div class="row2"><span class="role">{{ ed.school }}</span><span class="loc">{{ ed.location }}</span></div>
+  {% endfor %}
+
+  <h2>{{ T.skills }}</h2>
+  {% for s in skills %}
+    <div class="skill"><b>{{ s.label }}{{ colon }}</b> {{ s.content }}</div>
+  {% endfor %}
+  <div class="skill"><b>{{ T.certifications }}{{ colon }}</b> {{ certifications }}</div>
+  {% if soft_skills %}<div class="skill"><b>{{ T.soft }}{{ colon }}</b> {{ soft_skills }}</div>{% endif %}
+  <div class="skill"><b>{{ T.languages }}{{ colon }}</b> {{ languages }}</div>
+  {% if interests %}<div class="skill"><b>{{ T.interests }}{{ colon }}</b> {{ interests }}</div>{% endif %}
+
+</body>
+</html>

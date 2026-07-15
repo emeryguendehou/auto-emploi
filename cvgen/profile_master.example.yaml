@@ -1,0 +1,124 @@
+# ============================================================
+# PROFILE MASTER — EXEMPLE ANONYMISÉ
+# Copier vers profile_master.yaml (non versionné) et remplir avec
+# ses propres données. Règles d'or :
+#   - Chaque bullet existe en FR et EN, avec des tags thématiques.
+#   - On n'AJOUTE jamais de contenu au moment de générer : on SÉLECTIONNE.
+#   - Tout chiffre ici doit être vrai et défendable en entretien.
+# ============================================================
+
+identity:
+  name: "Prénom NOM"
+  email: "prenom.nom@example.com"
+  phones:
+    fr: "+33 6 00 00 00 00"
+    ca: "+1 (000) 000-0000"
+  addresses:
+    fr: "Région, France"
+    ca: "Adresse complète, Ville, Province, Canada"
+  linkedin: "linkedin.com/in/exemple"
+  github: "github.com/exemple"
+
+# Phrases de profil de base (l'accroche spécifique à l'offre est
+# générée par le LLM et AJOUTÉE à la suite, jamais à la place).
+profile_base:
+  fr: >-
+    Deux ou trois phrases de présentation générale, factuelles et
+    vérifiables (diplôme, spécialités, expérience clé).
+  en: >-
+    Two or three general presentation sentences, factual and
+    verifiable (degree, specialties, key experience).
+
+# ------------------------------------------------------------
+# ADMINISTRATIF — faits stables pour auto-remplir les champs récurrents des ATS.
+# Toujours FACTUEL : ne jamais surévaluer un droit au travail ou un salaire.
+# driving_license : "" si non concerné.
+# ------------------------------------------------------------
+administrative:
+  work_authorization:
+    fr: "Statut de travail en clair (ex. nationalité UE, titre de séjour, restrictions éventuelles)."
+    en: "Plain-language work status (e.g. EU national, residence permit, any restrictions)."
+  salary_expectation:
+    fr: "Fourchette brute annuelle (ex. 40–45 k€)."
+    en: "Gross annual range (e.g. €40–45k)."
+  work_mode:
+    fr: "Préférence de mode de travail (présentiel / hybride / télétravail)."
+    en: "Preferred work mode (on-site / hybrid / remote)."
+  mobility:
+    fr: "Zone de mobilité géographique."
+    en: "Geographic mobility."
+  available_from:
+    fr: "Mois et année de disponibilité."
+    en: "Availability month and year."
+  driving_license: ""
+
+# ------------------------------------------------------------
+# EXPÉRIENCES
+# include: always  -> toujours sur le CV
+# include: scored  -> inclus si le score de tags dépasse le seuil
+# include: never   -> réserve (à activer manuellement si besoin)
+# ------------------------------------------------------------
+experiences:
+  - id: exemple-exp
+    include: always
+    org: {fr: "Nom de l'organisation", en: "Organization name"}
+    role: {fr: "Intitulé du poste", en: "Job title"}
+    location: {fr: "Ville, Pays", en: "City, Country"}
+    dates: {fr: "Jan. 2025 – Déc. 2025", en: "Jan 2025 – Dec 2025"}
+    tags: [exemple-tag]
+    bullets:
+      - id: exemple-bullet
+        tags: [exemple-tag]
+        fr: "Réalisation concrète, chiffrée si possible, en une phrase."
+        en: "Concrete achievement, quantified when possible, in one sentence."
+
+# ------------------------------------------------------------
+# PROJETS (sélectionnés par tags, 2 à 3 par CV)
+# ------------------------------------------------------------
+projects:
+  - id: exemple-projet
+    name: "Nom du projet"
+    desc: {fr: "Description courte", en: "Short description"}
+    tech: "Technos principales"
+    tags: [exemple-tag]
+    bullets:
+      - fr: "Ce que fait le projet et ce qu'il démontre."
+        en: "What the project does and what it demonstrates."
+
+# ------------------------------------------------------------
+# FORMATION & CERTIFICATIONS
+# ------------------------------------------------------------
+education:
+  - degree: {fr: "Intitulé du diplôme", en: "Degree title"}
+    school: "École"
+    location: {fr: "Ville, Pays", en: "City, Country"}
+    dates: {fr: "2020 – 2026", en: "2020 – 2026"}
+
+certifications: "Certification A • Certification B"
+
+# ------------------------------------------------------------
+# COMPÉTENCES (groupes taggés — réordonnés selon l'offre)
+# ------------------------------------------------------------
+skills:
+  - id: sk-exemple
+    label: {fr: "Domaine de compétence", en: "Skill area"}
+    tags: [exemple-tag]
+    content:
+      fr: "Liste des compétences du groupe"
+      en: "List of skills in this group"
+
+# ------------------------------------------------------------
+# SOFT SKILLS (taggés — 6 sélectionnés par offre ;
+# ss-comm et ss-auto servent de plancher universel dans generate_cv.py)
+# ------------------------------------------------------------
+soft_skills:
+  - {id: ss-comm, tags: [communication], fr: "communication efficace", en: "clear communication"}
+  - {id: ss-auto, tags: [automation],    fr: "autonomie", en: "autonomy"}
+
+languages:
+  fr: "Français (natif) • Anglais (C1)"
+  en: "French (native) • English (advanced)"
+
+interests:  # affiché uniquement si le pays l'autorise
+  fr: "Centres d'intérêt éventuels"
+  en: ""

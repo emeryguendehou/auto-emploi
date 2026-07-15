@@ -1,0 +1,2 @@
+# Ce dossier accueille les données générées au runtime (jobs_global.json, exports…).
+# Son contenu réel est ignoré par git ; seul ce placeholder et criteres.example.md sont versionnés.
