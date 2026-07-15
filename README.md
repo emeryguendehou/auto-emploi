@@ -4,6 +4,11 @@ Robot de recherche d'emploi (CDI / CDD) qui **collecte** les offres, les **score
 selon votre profil, génère des **CV ciblés** et se pilote depuis un **tableau de bord web** —
 de la recherche à la candidature, au même endroit.
 
+> **État actuel** : le projet est **prêt à l'emploi pour la recherche de postes en cybersécurité
+> et en intelligence artificielle** — mots-clés, catégories et grille de scoring sont déjà calibrés
+> pour ces domaines. Tout étant piloté par la configuration, des **mises à jour à venir permettront
+> très prochainement de l'ouvrir à d'autres corps de métier**, sans refonte du code.
+
 ---
 
 ## Pourquoi ce projet
@@ -28,6 +33,30 @@ n'importe quel métier, contrat ou pays sans toucher au code.
 - **Génération de CV ciblés** : un CV PDF d'une page, adapté à l'annonce, à partir d'une source de vérité unique — sans rien inventer.
 - **Tableau de bord web** : configuration, exécution en direct, suivi des candidatures, thème clair/sombre.
 - **Export** CSV (Excel) et synchronisation Notion (optionnelle).
+
+---
+
+## Aperçu
+
+Tableau de bord web (thème clair ci-dessous ; un thème sombre est également disponible).
+
+**Vue d'ensemble** — état du pipeline et consommation des quotas LLM du jour
+![Vue d'ensemble](docs/screenshots/overview.jpg)
+
+**Offres** — offres scorées et classées, filtrables, avec génération de CV et suivi des candidatures
+![Offres](docs/screenshots/offers.jpg)
+
+**Mon CV** — la source de vérité des CV, en champs structurés (capture avec des données d'exemple)
+![Mon CV](docs/screenshots/moncv.jpg)
+
+**Exécution** — lancer les phases du pipeline et suivre la sortie en direct
+![Exécution](docs/screenshots/run.jpg)
+
+**Documentation intégrée** — chaque écran expliqué, avec exemples
+![Documentation](docs/screenshots/documentation.jpg)
+
+**Configuration** — ex. la page Mots-clés
+![Mots-clés](docs/screenshots/keywords.jpg)
 
 ---
 
